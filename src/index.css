@@ -1,0 +1,145 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-image: url(./assets/images/duct2.jpg);
+  background-image: -webkit-linear-gradient(left, 
+  rgba(192,192,192,1) 0%, 
+  rgba(0,0,0,0) 20%,
+  rgba(0,0,0,0) 80%,
+  rgba(192,192,192,1) 100%),
+  url(./assets/images/duct2.jpg);
+  background-color: #C0C0C0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.center {
+  text-align: center;
+}
+
+/* LOGIN PAGE */
+.floating-box {
+  border-radius: 10px;
+  background: rgba(236, 236, 236, 0.6);
+  border: 1px solid black;
+  min-height: 325px;
+  padding: 20px 20px 70px 20px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.floating-box .title {
+  color: black;
+  font-size: 20px;
+  margin: 20px auto 40px;
+  text-align: center;
+}
+
+.floating-box-footer {
+  padding: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+
+.floating-box-footer a {
+  border-top: 1px solid black;
+  color: black;
+  text-decoration: none;
+  display: block;
+  float: left;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+  width: 50%;
+}
+
+.floating-box-footer a:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+.floating-box-footer a:last-child {
+  border-bottom-right-radius: 10px;
+  border-left: 1px solid black;
+}
+
+.box-footer-margins {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.edit-footer {
+  padding: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+
+.edit-footer a {
+  border-top: 1px solid black;
+  color: black;
+  text-decoration: none;
+  display: block;
+  float: left;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.profile-logo {
+  height: 61px;
+}
+
+.company-logo {
+  max-width: 200px;
+  height: auto;
+}
+
+.no-account {
+  border-radius: 10px;
+  background: rgba(236, 236, 236, 0.6);
+  border: 1px solid black;
+  font-size: 16px;
+  font-weight: 500;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  width: 100%;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.cancel {
+  width: 100%;
+}
+
+form a {
+  text-decoration: none;
+}
+
+.system-list {
+  min-height: auto;
+}
+
+.home-card {
+  min-height: 360px;
+}
