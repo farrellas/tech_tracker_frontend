@@ -11,6 +11,7 @@ export default function EditEquipment({ notification, getEquipmentInfo }) {
   const dispatch = useDispatch();
 
   const [redirect, setRedirect] = useState(false);
+  const [redirectTo, setRedirectTo] = useState();
   const [equipment_class, setEquipmentClass] = useState();
   const [editEquipmentInfo, setEditEquipmentInfo] = useState({ ...equipment })
 
@@ -40,6 +41,7 @@ export default function EditEquipment({ notification, getEquipmentInfo }) {
     if (data.status === 'success') {
       notification(data);
       getEquipmentInfo(user, params.customerId, params.systemId, params.equipmentId);
+      setRedirectTo(`/customers/${params.customerId}/systems/${params.systemId}/equipment/${params.equipmentId}`);
       setRedirect(true);
     }
     else {
@@ -48,7 +50,7 @@ export default function EditEquipment({ notification, getEquipmentInfo }) {
   }
 
   const deleteEquipment = async () => {
-    const res = await fetch(`http://127.0.0.1:5000/api/customers/${params.customerId}/systems/${params.systemId}/delete/${params.equipmentId}`, {
+    const res = await fetch(`http://127.0.0.1:5000/api/customers/${params.customerId}/systems/${params.systemId}/equipment/delete/${params.equipmentId}`, {
       method: "POST",
       headers: {
         'x-access-token': user.token
@@ -58,6 +60,7 @@ export default function EditEquipment({ notification, getEquipmentInfo }) {
     if (data.status === 'success') {
       notification(data);
       dispatch(clearEquipment());
+      setRedirectTo(`/customers/${params.customerId}/systems/${params.systemId}`);
       setRedirect(true);
     }
   };
@@ -76,7 +79,7 @@ export default function EditEquipment({ notification, getEquipmentInfo }) {
   
 
   return redirect ?
-    (<Navigate to={`/customers/${params.customerId}/systems/${params.systemId}/equipment/${params.equipmentId}`} />)
+    (<Navigate to={redirectTo} />)
     :
     (
       <div className='flex-box-container'>

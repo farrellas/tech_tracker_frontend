@@ -19,7 +19,7 @@ export default function CreateEquipment({ notification }) {
         'x-access-token': user.token
       },
       body: JSON.stringify({
-        equipment_class: e.target.equipment_class.value,
+        equipment_class: equipment_class,
         brand: e.target.brand.value,
         model_no: e.target.model_no.value,
         serial_no: e.target.serial_no.value,
