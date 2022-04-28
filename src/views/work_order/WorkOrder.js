@@ -37,7 +37,7 @@ export default function WorkOrder({ getCustomerInfo, getSystemInfo }) {
                 <h3>{workOrder.order_type}</h3>
               </div>
               <div className="col-sm-12 mb-2">
-                Model:
+                Work Performed:
                 <h3>{workOrder.work_performed}</h3>
               </div>
               <div className="edit-footer">

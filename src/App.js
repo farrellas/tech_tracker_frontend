@@ -46,6 +46,7 @@ export default function App() {
   const dispatch = useDispatch();
 
   const [alert, setAlert] = useState();
+  
   const notification = (alertObj) => {
     setAlert(alertObj);
   };
@@ -208,7 +209,7 @@ export default function App() {
             path='/addcompany'
             element={
               <PrivateRoute>
-                <AddCompany notification={notification} getUserInfo={getUserInfo} />
+                <AddCompany notification={notification} getUserInfo={getUserInfo} getCompanyInfo={getCompanyInfo} />
               </PrivateRoute>
             }
           />

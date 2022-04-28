@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link, Navigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 
-export default function AddCompany({ notification, getUserInfo }) {
+export default function AddCompany({ notification, getUserInfo, getCompanyInfo }) {
     const user = useSelector((state) => state.auth.user);
 
     const [redirect, setRedirect] = useState(false);
@@ -27,6 +27,7 @@ export default function AddCompany({ notification, getUserInfo }) {
         if (data.status === 'success') {
             notification(data);
             getUserInfo(user);
+            getCompanyInfo(user);
             setRedirect(true);
         }
         else {
@@ -39,7 +40,7 @@ export default function AddCompany({ notification, getUserInfo }) {
         :
         (
             <div className='flex-box-container'>
-                <div className="row gx-0 ustify-content-center w-100 mt-2">
+                <div className="row gx-0 justify-content-center w-100 mt-2">
                     <div className="col-xs-12 col-sm-8 col-md-8 col-lg-6 col-xl-6 col-xxl-4">
                         <div className="floating-box">
                             <div className="col-sm-12 d-grid mb-3 center">

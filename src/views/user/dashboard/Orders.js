@@ -16,7 +16,7 @@ export default function Orders({ work_orders }) {
             <TableCell>Date</TableCell>
             <TableCell>Customer ID</TableCell>
             <TableCell>Order Type</TableCell>
-            <TableCell>Payment Method</TableCell>
+            <TableCell>Work Performed</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

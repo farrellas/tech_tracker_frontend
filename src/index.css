@@ -15,7 +15,7 @@ body {
   rgba(0,0,0,0) 80%,
   rgba(192,192,192,1) 100%),
   url(./assets/images/duct2.jpg);
-  background-color: #C0C0C0;
+  background-color: black;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center; 

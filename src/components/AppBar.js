@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { logout } from '../store/reducers/authSlice';
+import { removeCompany } from '../store/reducers/companySlice';
 import { useDispatch, useSelector } from 'react-redux';
 import logo from '../assets/images/ace_tech_logo.png'
 
@@ -187,6 +188,7 @@ const ResponsiveAppBar = () => {
               <Link to='/login' className='text-decoration-none link-dark'>
                 <MenuItem onClick={() => {
                   dispatch(logout());
+                  dispatch(removeCompany());
                   handleCloseUserMenu();
                 }}>
                   <Typography textAlign="center">Log Out</Typography>

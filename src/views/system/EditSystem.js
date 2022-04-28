@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { clearSystem } from '../../store/reducers/systemSlice';
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { Button } from '@mui/material';
+import { Button, Checkbox } from '@mui/material';
 
 export default function EditSystem({ notification, getSystemInfo }) {
   const params = useParams();
@@ -11,7 +11,10 @@ export default function EditSystem({ notification, getSystemInfo }) {
   const dispatch = useDispatch();
 
   const [redirect, setRedirect] = useState(false);
+  const [redirectTo, setRedirectTo] = useState();
   const [editSystemInfo, setEditSystemInfo] = useState({ ...system })
+  const [heating, setHeating] = useState(editSystemInfo.heating);
+  const [cooling, setCooling] = useState(editSystemInfo.cooling);
 
   const sendToFlask = async (e) => {
     e.preventDefault();
@@ -25,8 +28,8 @@ export default function EditSystem({ notification, getSystemInfo }) {
         name: e.target.name.value,
         area_served: e.target.area_served.value,
         system_type: e.target.system_type.value,
-        heating: e.target.heating.value,
-        cooling: e.target.cooling.value,
+        heating: heating,
+        cooling: cooling,
         notes: e.target.notes.value
       })
     });
@@ -36,6 +39,7 @@ export default function EditSystem({ notification, getSystemInfo }) {
     if (data.status === 'success') {
       notification(data);
       getSystemInfo(user, params.customerId, params.systemId);
+      setRedirectTo(`/customers/${params.customerId}/systems/${params.systemId}`);
       setRedirect(true);
     }
     else {
@@ -54,6 +58,7 @@ export default function EditSystem({ notification, getSystemInfo }) {
     if (data.status === 'success') {
       notification(data);
       dispatch(clearSystem());
+      setRedirectTo(`/customers/${params.customerId}`);
       setRedirect(true);
     }
   };
@@ -62,8 +67,16 @@ export default function EditSystem({ notification, getSystemInfo }) {
     setEditSystemInfo({ value: event.target.value });
   };
 
+  const handleChangeHeating = () => {
+    setHeating(!heating);
+  };
+
+  const handleChangeCooling = () => {
+    setCooling(!cooling);
+  };
+
   return redirect ?
-    (<Navigate to={`/customers/${params.customerId}/systems/${params.systemId}`} />)
+    (<Navigate to={redirectTo} />)
     :
     (
       <div className='flex-box-container'>
@@ -90,10 +103,10 @@ export default function EditSystem({ notification, getSystemInfo }) {
                 </div>
                 <div className="col-sm-12 mb-1 d-flex justify-content-around">
                   <div>
-                    <h5>Heating: <input id="heating" name="heating" type="checkbox" checked={editSystemInfo.heating} onChange={handleChange} /></h5>
+                    <h5>Heating: <Checkbox name="heating" checked={heating} type="checkbox" onChange={handleChangeHeating} /></h5>
                   </div>
                   <div>
-                    <h5>Cooling: <input id="cooling" name="cooling" type="checkbox" checked={editSystemInfo.cooling} onChange={handleChange} /></h5>
+                    <h5>Cooling: <Checkbox name="cooling" checked={cooling} type="checkbox" onChange={handleChangeCooling} /></h5>
                   </div>
                 </div>
                 <div className="col-sm-12 mb-3">

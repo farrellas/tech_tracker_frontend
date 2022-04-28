@@ -44,7 +44,6 @@ export default function Dashboard({ notification }) {
             <Toolbar />
             <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
                 <Grid container spacing={3}>
-                    {/* Chart */}
                     <Grid item xs={12} md={8} lg={9}>
                         <Paper
                             sx={{
@@ -57,7 +56,6 @@ export default function Dashboard({ notification }) {
                             <Chart />
                         </Paper>
                     </Grid>
-                    {/* Recent Deposits */}
                     <Grid item xs={12} md={4} lg={3}>
                         <Paper
                             sx={{
@@ -67,10 +65,9 @@ export default function Dashboard({ notification }) {
                                 height: 240,
                             }}
                         >
-                            <Deposits />
+                            <Deposits work_orders={work_orders} />
                         </Paper>
                     </Grid>
-                    {/* Recent Orders */}
                     <Grid item xs={12}>
                         <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
                             <Orders work_orders={work_orders} />
