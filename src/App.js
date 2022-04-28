@@ -39,6 +39,7 @@ import EditEquipment from './views/equipment/EditEquipment';
 import WorkOrder from './views/work_order/WorkOrder';
 import CreateWorkOrder from './views/work_order/CreateWorkOrder';
 import EditWorkOrder from './views/work_order/EditWorkOrder';
+import Dashboard from './views/user/dashboard/Dashboard';
 
 
 export default function App() {
@@ -270,6 +271,14 @@ export default function App() {
             }
           />
           <Route
+            path='/dashboard'
+            element={
+              <PrivateRoute>
+                <Dashboard notification={notification} />
+              </PrivateRoute>
+            }
+          />
+          <Route
             path='/customers/:customerId/systems/:systemId'
             element={
               <PrivateRoute>
@@ -321,7 +330,7 @@ export default function App() {
             path='/customers/:customerId/systems/:systemId/workorders/:workOrderId'
             element={
               <PrivateRoute>
-                <WorkOrder notification={notification} />
+                <WorkOrder notification={notification} getCustomerInfo={getCustomerInfo} getSystemInfo={getSystemInfo} />
               </PrivateRoute>
             }
           />

@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { Button } from '@mui/material';
 
-export default function WorkOrder() {
+export default function WorkOrder({ getCustomerInfo, getSystemInfo }) {
   const params = useParams();
+  const user = useSelector((state) => state.auth.user)
   const workOrder = useSelector((state) => state.workOrder.work_order);
+  
+  useEffect(() => {
+    getCustomerInfo(user, params.customerId);
+    getSystemInfo(user, params.customerId, params.systemId);
+  }, [])
+  
 
   return (
     <div className='flex-box-container'>
@@ -14,7 +21,7 @@ export default function WorkOrder() {
           <div className="floating-box">
             <div className='row'>
               <div className="cancel center mb-1">
-                <Link className='col-sm-12 d-grid' to={`/customers/${params.customerId}/systems/${params.systemId}`}>
+                <Link className='col-sm-12 d-grid text-decoration-none' to={`/customers/${params.customerId}/systems/${params.systemId}`}>
                   <Button variant="contained" size='large' color='info'>BACK TO SYSTEM</Button>
                 </Link>
               </div>

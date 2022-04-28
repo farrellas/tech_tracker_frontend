@@ -20,6 +20,7 @@ export const authSlice = createSlice({
             state.user_authenticated = false;
             localStorage.removeItem('technician_user');
             localStorage.setItem('user_authenticated', state.user_authenticated);
+            localStorage.removeItem('company');
         }
     }
 })

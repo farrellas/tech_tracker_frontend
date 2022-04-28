@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { clearWorkOrder } from '../../store/reducers/workOrderSlice';
 
 import WorkOrderCard from '../../components/WorkOrderCard';
+import { clearCustomer } from '../../store/reducers/customerSlice';
+import { clearSystem } from '../../store/reducers/systemSlice';
 
 export default function Recent({ notification }) {
   const user = useSelector((state) => state.auth.user);
@@ -29,14 +31,12 @@ export default function Recent({ notification }) {
       });
     }
   }
-  
+
   useEffect(() => {
     getUserWorkOrders();
     dispatch(clearWorkOrder());
-
-    return () => {
-
-    }
+    dispatch(clearCustomer());
+    dispatch(clearSystem());
   }, [])
 
   return (

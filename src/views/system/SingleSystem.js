@@ -84,10 +84,10 @@ export default function SingleSystem({ notification }) {
           <div className="col-xs-12 col-sm-8 col-md-8 col-lg-6 col-xl-6 col-xxl-4">
             <div className="floating-box pb-8">
               <div className="cancel center mb-1">
-                <Link className='col-sm-12 d-grid mb-3' to={`/customers/${params.customerId}`}>
+                <Link className='col-sm-12 d-grid mb-3 text-decoration-none' to={`/customers/${params.customerId}`}>
                   <Button variant="contained" size='large' color='info'>BACK TO CUSTOMER PAGE</Button>
                 </Link>
-                <Link to={`/customers/${system.customer_id}/systems/${system.id}/workorders/create`} className='col-sm-12 d-grid'>
+                <Link to={`/customers/${system.customer_id}/systems/${system.id}/workorders/create`} className='col-sm-12 d-grid text-decoration-none'>
                   <Button variant='contained' size='large' onClick={() => dispatch(setSystem(system))}>Create Work Order</Button>
                 </Link>
               </div>
@@ -136,7 +136,7 @@ export default function SingleSystem({ notification }) {
               <h4 className="title">
                 Equipment List
               </h4>
-              <Link to={`/customers/${params.customerId}/systems/${params.systemId}/equipment/create`} className="col-sm-12 d-grid">
+              <Link to={`/customers/${params.customerId}/systems/${params.systemId}/equipment/create`} className="col-sm-12 d-grid text-decoration-none">
                 <Button variant="contained" size='large'>Add Equipment</Button>
               </Link>
               <div className='column center'>
@@ -153,7 +153,7 @@ export default function SingleSystem({ notification }) {
               <h4 className="title">
                 Work Order List
               </h4>
-              <Link to={`/customers/${params.customerId}/systems/${params.systemId}/workorders/create`} className="col-sm-12 d-grid">
+              <Link to={`/customers/${params.customerId}/systems/${params.systemId}/workorders/create`} className="col-sm-12 d-grid text-decoration-none">
                 <Button variant="contained" size='large'>CREATE WORK ORDER</Button>
               </Link>
               {work_orders.length === 0 &&

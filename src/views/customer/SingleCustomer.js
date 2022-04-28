@@ -82,7 +82,7 @@ export default function SingleCustomer({ notification }) {
             <div className="floating-box">
               <div className='row'>
                 <div className="cancel center mb-1">
-                  <Link className='col-sm-12 d-grid' to={`/customers`}>
+                  <Link className='col-sm-12 d-grid text-decoration-none' to={`/customers`}>
                     <Button variant="contained" size='large' color='info'>BACK TO CUSTOMER LIST</Button>
                   </Link>
                 </div>
@@ -127,7 +127,7 @@ export default function SingleCustomer({ notification }) {
               </h4>
               {systems.length > 0 ?
                 <>
-                  <Link to={`/customers/${params.customerId}/systems/create`} className="col-sm-12 d-grid">
+                  <Link to={`/customers/${params.customerId}/systems/create`} className="col-sm-12 d-grid text-decoration-none">
                     <Button variant="contained" size='large'>Add Another System</Button>
                   </Link>
                   <div className='column center'>
@@ -137,7 +137,7 @@ export default function SingleCustomer({ notification }) {
                 </>
                 :
                 <div>
-                  <Link to={`/customers/${params.customerId}/systems/create`} className="col-sm-12 d-grid">
+                  <Link to={`/customers/${params.customerId}/systems/create`} className="col-sm-12 d-grid text-decoration-none">
                     <Button variant="contained" size='large'>Add First System</Button>
                   </Link>
                 </div>
@@ -152,14 +152,13 @@ export default function SingleCustomer({ notification }) {
               <h4 className="title">
                 Work Order List
               </h4>
-              <hr />
               {work_orders.length === 0 ?
                 <div className='column center'>
+                  <hr />
                   <h5>No Work Orders</h5>
                 </div>
                 :
                 <div className='column center'>
-                  <hr />
                   {work_orders.map((w, i) => <WorkOrderCard key={i} work_order={w} />)}
                 </div>
               }

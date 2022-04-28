@@ -122,17 +122,17 @@ const ResponsiveAppBar = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {userAuthenticated &&
               <>
-                <Link to='/'>
+                <Link to='/' className='text-decoration-none'>
                   <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
                     Home
                   </Button>
                 </Link>
-                <Link to='/customers'>
+                <Link to='/customers' className='text-decoration-none'>
                   <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
                     Customers
                   </Button>
                 </Link>
-                <Link to='/recent'>
+                <Link to='/recent' className='text-decoration-none'>
                   <Button onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
                     Recent
                   </Button>
@@ -178,7 +178,7 @@ const ResponsiveAppBar = () => {
                   <Typography textAlign="center">Profile</Typography>
                 </MenuItem>
               </Link>
-              <Link to='/profile' className='text-decoration-none link-dark'>
+              <Link to='/dashboard' className='text-decoration-none link-dark'>
                 <MenuItem onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">Dashboard</Typography>
                 </MenuItem>

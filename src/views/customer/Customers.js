@@ -63,7 +63,7 @@ export default function Customers({ notification }) {
             </h4>
             {customers.length > 0 ?
               <>
-                <Link to='/customers/create' className="col-sm-12 d-grid">
+                <Link to='/customers/create' className="col-sm-12 d-grid text-decoration-none">
                   <Button variant="contained" size='large'>Add New Customer</Button>
                 </Link>
                 <div className='column center'>
@@ -73,7 +73,7 @@ export default function Customers({ notification }) {
               </>
               :
               <div>
-                <Link to='/customers/create' className="col-sm-12 d-grid">
+                <Link to='/customers/create' className="col-sm-12 d-grid text-decoration-none">
                   <Button variant="contained" size='large'>Add First Customer</Button>
                 </Link>
               </div>

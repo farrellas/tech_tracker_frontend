@@ -68,8 +68,8 @@ export default function CreateCustomer({ notification }) {
                   <input id="city" className="form-control form-control-lg" name="city" placeholder="City" required="True" type="text" />
                 </div>
                 <div className="col-sm-12 mb-3">
-                  <select id="state" className="form-control form-control-lg" name="state" placeholder="State" required="True">
-                    <option selected disabled>Select state</option>
+                  <select id="state" defaultValue='select' className="form-control form-control-lg" name="state" placeholder="State" required="True">
+                    <option value='select' disabled>Select state</option>
                     {[...states].map((state, i) =>
                       <option key={i} value={state}>{state}</option>
                     )}

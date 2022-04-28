@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store/store';
+import { createTheme, ThemeProvider } from '@mui/material';
 
 
 // Import the functions you need from the SDKs you need
@@ -54,16 +55,36 @@ const app = initializeApp(firebaseConfig);
 
 // const analytics = getAnalytics(app);
 
+const theme = createTheme({
+  palette: {
+    type: 'dark',
+    primary: {
+      main: '#076400',
+    },
+    secondary: {
+      main: '#0689da',
+    },
+    info: {
+      main: '#dadada',
+    },
+    success: {
+      main: '#0064ff',
+    }
+  },
+})
+
 
 ReactDOM.render(
 
   <React.StrictMode>
     <Provider store={store}>
-      <Router>
-        <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-          <ProviderLayer />
-        </FirebaseAppProvider>
-      </Router>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+            <ProviderLayer />
+          </FirebaseAppProvider>
+        </Router>
+      </ThemeProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

@@ -14,7 +14,7 @@ export default function Equipment() {
           <div className="floating-box">
             <div className='row'>
               <div className="cancel center mb-1">
-                <Link className='col-sm-12 d-grid' to={`/customers/${params.customerId}/systems/${params.systemId}`}>
+                <Link className='col-sm-12 d-grid text-decoration-none' to={`/customers/${params.customerId}/systems/${params.systemId}`}>
                   <Button variant="contained" size='large' color='info'>BACK TO SYSTEM</Button>
                 </Link>
               </div>
