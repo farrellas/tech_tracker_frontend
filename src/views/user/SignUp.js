@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { Button } from '@mui/material';
+import logo from '../../assets/images/ace_tech_logo_2.png'
 
 import gLogo from "../../assets/images/google.svg";
 import mLogo from "../../assets/images/microsoft.svg";
@@ -81,6 +82,11 @@ export default function SignUp({ notification }) {
       <div className='flex-box-container'>
         <div className="row gx-0 justify-content-center w-100 mt-2">
           <div className="col-xs-12 col-sm-8 col-md-8 col-lg-6 col-xl-6 col-xxl-4">
+            <div className='center mb-2'>
+              <Link to='/' className='text-decoration-none link-light'>
+                <img className='logo' alt='logo' src={logo} />
+              </Link>
+            </div>
             <div className="floating-box">
               <form className="form-group row" onSubmit={(e) => sendToFlask(e)}>
                 <h4 className="title">

@@ -30,7 +30,18 @@ code {
   text-align: center;
 }
 
-/* LOGIN PAGE */
+.appbar-logo {
+  max-height: 75px;
+}
+
+.logo {
+  max-height: 200px;
+  border-radius: 10px;
+  border: solid;
+  border-color: black;
+  border-width: 1px;
+}
+
 .floating-box {
   border-radius: 10px;
   background: rgba(236, 236, 236, 0.6);

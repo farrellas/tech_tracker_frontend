@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { logout } from '../store/reducers/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import logo from '../assets/images/ace_tech_logo.png'
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -54,7 +55,7 @@ const ResponsiveAppBar = () => {
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
             <Link to='/' className='text-decoration-none link-light'>
-              Ace Tech Apps
+              <img className='appbar-logo' alt='logo' src={logo} />
             </Link>
           </Typography>
 

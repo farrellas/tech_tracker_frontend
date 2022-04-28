@@ -14,6 +14,7 @@ import Typography from '@mui/material/Typography';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
 import { Link } from 'react-router-dom';
+import logo from '../assets/images/ace_tech_logo_2.png'
 
 const cards = [
   {
@@ -77,6 +78,9 @@ export default function Home() {
                 >
                   HVAC Service Tracking
                 </Typography>
+                <div className='center mb-2'>
+                  <img className='logo' alt='logo' src={logo} />
+                </div>
                 <Typography variant="h5" align="center" color="text.secondary" component="p">
                   Quickly and effectively keep track of your customers and what work was
                   performed at each visit. Have all equipment information and always be
