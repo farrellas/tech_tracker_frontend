@@ -10,11 +10,12 @@ import { Button } from '@mui/material';
 import Customer from '../../components/Customer';
 
 export default function Customers({ notification }) {
-  const user = useSelector((state) => state.auth.user)
+  const user = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
-  
+
   const [redirect, setRedirect] = useState(false);
-  const [customers, setCustomers] = useState([])
+  const [customers, setCustomers] = useState([]);
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
     dispatch(clearCustomer());
@@ -51,36 +52,37 @@ export default function Customers({ notification }) {
 
   return redirect ? (
     <Navigate to="/customers" />
-  ) 
-  :
-  (
-    <div className='flex-box-container'>
-      <div className="row gx-0 justify-content-center w-100 mt-2">
-        <div className="col-xs-12 col-sm-8 col-md-8 col-lg-6 col-xl-6 col-xxl-4">
-          <div className="floating-box">
-            <h4 className="title">
-              Customer List
-            </h4>
-            {customers.length > 0 ?
-              <>
-                <Link to='/customers/create' className="col-sm-12 d-grid text-decoration-none">
-                  <Button variant="contained" size='large'>Add New Customer</Button>
-                </Link>
-                <div className='column center'>
-                  <hr />
-                  {customers.map((c, i) => <Customer key={i} customer={c} />)}
-                </div>
-              </>
-              :
-              <div>
-                <Link to='/customers/create' className="col-sm-12 d-grid text-decoration-none">
-                  <Button variant="contained" size='large'>Add First Customer</Button>
-                </Link>
+  )
+    :
+    (
+      <div className='flex-box-container'>
+        <div className="row gx-0 justify-content-center w-100 mt-2">
+          <div className="col-xs-12 col-sm-8 col-md-8 col-lg-6 col-xl-6 col-xxl-4">
+            <div className="floating-box">
+              <h4 className="title">
+                Customer List
+              </h4>
+              <div className='mb-3'>
+                <input placeholder='Search Customers' className="form-control form-control-lg" onChange={event => setQuery(event.target.value)} />
               </div>
-            }
+              <Link to='/customers/create' className="col-sm-12 d-grid text-decoration-none">
+                <Button variant="contained" size='large'>Add New Customer</Button>
+              </Link>
+              <div className='column center'>
+                <hr />
+                {
+                  customers.filter(customer => {
+                    if (query === '') {
+                      return customer;
+                    } else if (customer.name.toLowerCase().includes(query.toLowerCase())) {
+                      return customer;
+                    }
+                  }).map((c, i) => <Customer key={i} customer={c} />)}
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  )
+    )
 }
