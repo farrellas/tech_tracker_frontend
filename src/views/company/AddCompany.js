@@ -11,7 +11,7 @@ export default function AddCompany({ notification, getUserInfo, getCompanyInfo }
 
     const sendToFlask = async (e) => {
         e.preventDefault();
-        const res = await fetch("http://127.0.0.1:5000/api/profile/add-company", {
+        const res = await fetch("https://tech-tracker-backend.herokuapp.com/api/profile/add-company", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',

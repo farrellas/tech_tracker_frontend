@@ -27,7 +27,7 @@ export default function EditCustomer({ notification, getCustomerInfo }) {
 
   const sendToFlask = async (e) => {
     e.preventDefault();
-    const res = await fetch(`http://127.0.0.1:5000/api/customers/edit/${params.customerId}`, {
+    const res = await fetch(`https://tech-tracker-backend.herokuapp.com/api/customers/edit/${params.customerId}`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ export default function EditCustomer({ notification, getCustomerInfo }) {
   }
 
   const deleteCustomer = async () => {
-    const res = await fetch(`http://127.0.0.1:5000/api/customers/delete/${params.customerId}`, {
+    const res = await fetch(`https://tech-tracker-backend.herokuapp.com/api/customers/delete/${params.customerId}`, {
       method: "POST",
       headers: {
         'x-access-token': user.token

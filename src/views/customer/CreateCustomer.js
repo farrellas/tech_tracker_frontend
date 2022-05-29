@@ -13,7 +13,7 @@ export default function CreateCustomer({ notification }) {
 
   const sendToFlask = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://127.0.0.1:5000/api/customers/create", {
+    const res = await fetch("https://tech-tracker-backend.herokuapp.com/api/customers/create", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',

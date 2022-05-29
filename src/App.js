@@ -56,7 +56,7 @@ export default function App() {
 
   const getUserInfo = async (user) => {
     if (user.token) {
-      const res = await fetch('http://localhost:5000/api/user-info', {
+      const res = await fetch('https://tech-tracker-backend.herokuapp.com/api/user-info', {
         method: "GET",
         headers: {
           'x-access-token': user.token
@@ -72,7 +72,7 @@ export default function App() {
     }
   };
   const getCompanyInfo = async (user) => {
-    const res = await fetch('http://localhost:5000/api/company', {
+    const res = await fetch('https://tech-tracker-backend.herokuapp.com/api/company', {
       method: "GET",
       headers: {
         'x-access-token': user.token
@@ -87,7 +87,7 @@ export default function App() {
     dispatch(setCompany(data.company));
   };
   const getCustomerInfo = async (user, customerId) => {
-    const res = await fetch(`http://localhost:5000/api/customers/${customerId}`, {
+    const res = await fetch(`https://tech-tracker-backend.herokuapp.com/api/customers/${customerId}`, {
       method: "GET",
       headers: {
         'x-access-token': user.token
@@ -102,7 +102,7 @@ export default function App() {
     dispatch(setCustomer(data.customer));
   }
   const getSystemInfo = async (user, customerId, systemId) => {
-    const res = await fetch(`http://localhost:5000/api/customers/${customerId}/systems/${systemId}`, {
+    const res = await fetch(`https://tech-tracker-backend.herokuapp.com/api/customers/${customerId}/systems/${systemId}`, {
       method: "GET",
       headers: {
         'x-access-token': user.token
@@ -117,7 +117,7 @@ export default function App() {
     dispatch(setSystem(data.system));
   }
   const getEquipmentInfo = async (user, customerId, systemId, equipmentId) => {
-    const res = await fetch(`http://localhost:5000/api/customers/${customerId}/systems/${systemId}/equipment/${equipmentId}`, {
+    const res = await fetch(`https://tech-tracker-backend.herokuapp.com/api/customers/${customerId}/systems/${systemId}/equipment/${equipmentId}`, {
       method: "GET",
       headers: {
         'x-access-token': user.token
@@ -132,7 +132,7 @@ export default function App() {
     dispatch(setEquipment(data.equipment));
   }
   const getWorkOrderInfo = async (user, customerId, systemId, workOrderId) => {
-    const res = await fetch(`http://localhost:5000/api/customers/${customerId}/systems/${systemId}/work-order/${workOrderId}`, {
+    const res = await fetch(`https://tech-tracker-backend.herokuapp.com/api/customers/${customerId}/systems/${systemId}/work-order/${workOrderId}`, {
       method: "GET",
       headers: {
         'x-access-token': user.token

@@ -15,7 +15,7 @@ export default function EditWorkOrder({ notification, getWorkOrderInfo }) {
 
   const sendToFlask = async (e) => {
     e.preventDefault();
-    const res = await fetch(`http://127.0.0.1:5000/api/customers/${params.customerId}/systems/${params.systemId}/work-order/${params.workOrderId}/edit`, {
+    const res = await fetch(`https://tech-tracker-backend.herokuapp.com/api/customers/${params.customerId}/systems/${params.systemId}/work-order/${params.workOrderId}/edit`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ export default function EditWorkOrder({ notification, getWorkOrderInfo }) {
   }
 
   const deleteWorkOrder = async () => {
-    const res = await fetch(`http://127.0.0.1:5000/api/customers/${params.customerId}/systems/${params.systemId}/work-order/delete/${params.workOrderId}`, {
+    const res = await fetch(`https://tech-tracker-backend.herokuapp.com/api/customers/${params.customerId}/systems/${params.systemId}/work-order/delete/${params.workOrderId}`, {
       method: "POST",
       headers: {
         'x-access-token': user.token

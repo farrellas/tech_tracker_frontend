@@ -19,7 +19,7 @@ export default function SingleCustomer({ notification }) {
   const [work_orders, setWorkOrderList] = useState([]);
 
   const getSystems = async (customerId) => {
-    const res = await fetch(`http://localhost:5000/api/customers/${customerId}/system-list`, {
+    const res = await fetch(`https://tech-tracker-backend.herokuapp.com/api/customers/${customerId}/system-list`, {
       method: "GET",
       headers: {
         'x-access-token': user.token
@@ -40,7 +40,7 @@ export default function SingleCustomer({ notification }) {
   }
 
   const getCustomerWorkOrders = async (customerId) => {
-    const res = await fetch(`http://localhost:5000/api/customers/${customerId}/work-order-list`, {
+    const res = await fetch(`https://tech-tracker-backend.herokuapp.com/api/customers/${customerId}/work-order-list`, {
       method: "GET",
       headers: {
         'x-access-token': user.token

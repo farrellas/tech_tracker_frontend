@@ -2,7 +2,7 @@ import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import Title from './Title';
 
-export default function Deposits({ work_orders }) {
+export default function RecentWorkOrders({ work_orders }) {
   return (
     <React.Fragment>
       <Title>Recently Completed Work Orders</Title>

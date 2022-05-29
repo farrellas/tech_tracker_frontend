@@ -14,7 +14,7 @@ export default function Profile() {
             <h4 className="title">
               User Profile
             </h4>
-            <div className="col-sm-12 mb-2">
+            <div className="col-sm-12 mb-2 w-100 text-wrap">
               E-Mail:
               <h3>{user.email}</h3>
             </div>

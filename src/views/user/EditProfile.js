@@ -13,7 +13,7 @@ export default function EditProfile({ notification, getUserInfo }) {
 
     const sendToFlask = async (e) => {
         e.preventDefault();
-        const res = await fetch("http://127.0.0.1:5000/api/profile/edit", {
+        const res = await fetch("https://tech-tracker-backend.herokuapp.com/api/profile/edit", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ export default function EditProfile({ notification, getUserInfo }) {
     };
 
     const deleteUser = async () => {
-        const res = await fetch("http://127.0.0.1:5000/api/profile/delete", {
+        const res = await fetch("https://tech-tracker-backend.herokuapp.com/api/profile/delete", {
             method: "POST",
             headers: {
                 'x-access-token': user.token

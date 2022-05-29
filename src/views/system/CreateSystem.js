@@ -14,7 +14,7 @@ export default function CreateSystem({ notification }) {
   const sendToFlask = async (e) => {
     e.preventDefault();
     console.log(e.target.heating.value)
-    const res = await fetch(`http://127.0.0.1:5000/api/customers/${params.customerId}/systems/create`, {
+    const res = await fetch(`https://tech-tracker-backend.herokuapp.com/api/customers/${params.customerId}/systems/create`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',

@@ -10,26 +10,33 @@ export default function Orders({ work_orders }) {
   return (
     <React.Fragment>
       <Title>Recent Work Orders</Title>
-      <Table size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell>Date</TableCell>
-            <TableCell>Customer ID</TableCell>
-            <TableCell>Order Type</TableCell>
-            <TableCell>Work Performed</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {work_orders.map((work_order) => (
-            <TableRow key={work_order.id}>
-              <TableCell>{work_order.date_created}</TableCell>
-              <TableCell>{work_order.customer_id}</TableCell>
-              <TableCell>{work_order.order_type}</TableCell>
-              <TableCell>{work_order.work_performed}</TableCell>
+      {work_orders.length > 0 ?
+        <Table size="small">
+          <TableHead>
+            <TableRow>
+              <TableCell>Date</TableCell>
+              <TableCell>Customer ID</TableCell>
+              <TableCell>Order Type</TableCell>
+              <TableCell>Work Performed</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHead>
+          <TableBody>
+            {work_orders.map((work_order) => (
+              <TableRow key={work_order.id}>
+                <TableCell>{work_order.date_created}</TableCell>
+                <TableCell>{work_order.customer_id}</TableCell>
+                <TableCell>{work_order.order_type}</TableCell>
+                <TableCell>{work_order.work_performed}</TableCell>
+              </TableRow>
+            ))
+            }
+          </TableBody>
+        </Table>
+        :
+        <div className="center">
+          <Title>No Work Orders</Title>
+        </div>
+      }
     </React.Fragment>
   );
 }

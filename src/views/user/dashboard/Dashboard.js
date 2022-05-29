@@ -6,7 +6,7 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Chart from './Chart';
-import Deposits from './Deposits';
+import RecentWorkOrders from './RecentWorkOrders';
 import Orders from './Orders';
 
 export default function Dashboard({ notification }) {
@@ -16,7 +16,7 @@ export default function Dashboard({ notification }) {
 
 
     const getUserWorkOrders = async () => {
-        const res = await fetch(`http://localhost:5000/api/recent/work-order-list`, {
+        const res = await fetch(`https://tech-tracker-backend.herokuapp.com/api/recent/work-order-list`, {
             method: "GET",
             headers: {
                 'x-access-token': user.token
@@ -65,7 +65,7 @@ export default function Dashboard({ notification }) {
                                 height: 240,
                             }}
                         >
-                            <Deposits work_orders={work_orders} />
+                            <RecentWorkOrders work_orders={work_orders} />
                         </Paper>
                     </Grid>
                     <Grid item xs={12}>

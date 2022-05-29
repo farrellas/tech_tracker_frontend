@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { getAuth, signInWithPopup, GoogleAuthProvider, OAuthProvider  } from 'firebase/auth';
 import { Button } from '@mui/material';
 import logo from '../../assets/images/ace_tech_logo_2.png'
 
@@ -11,6 +11,49 @@ export default function SignUp({ notification }) {
   const [redirect, setRedirect] = useState(false);
 
   const auth = getAuth();
+
+  const signUpMicrosoft = async (e) => {
+    e.preventDefault();
+    const provider = new OAuthProvider('microsoft.com');
+    provider.setCustomParameters({
+      prompt: "consent",
+      tenant: "common",
+    })
+    const res = await signInWithPopup(auth, provider);
+    console.log(res);
+    if (res.user) {
+      const microsoftUser = {
+        ...res.user,
+        email: res.user.email,
+        id: res.user.uid
+      }
+      const name = microsoftUser.displayName.split(" ")
+      const first_name = name[0]
+      const last_name = name[1]
+      const flask = await fetch("https://tech-tracker-backend.herokuapp.com/api/signup", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: microsoftUser.email,
+          first_name: first_name,
+          last_name: last_name,
+          password: microsoftUser.uid,
+          conf_password: microsoftUser.uid
+        })
+      });
+      const data = await flask.json();
+
+      if (data.status === 'success') {
+        notification(data);
+        setRedirect(true);
+      }
+      else {
+        notification(data);
+      }
+    } else {
+      notification({ 'status': 'error', 'message': 'Microsoft Authentication Failed' });
+    }
+  }
 
   const signUpGoogle = async (e) => {
     e.preventDefault();
@@ -26,7 +69,7 @@ export default function SignUp({ notification }) {
       const name = googleUser.displayName.split(" ")
       const first_name = name[0]
       const last_name = name[1]
-      const flask = await fetch("http://127.0.0.1:5000/api/signup", {
+      const flask = await fetch("https://tech-tracker-backend.herokuapp.com/api/signup", {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -53,7 +96,7 @@ export default function SignUp({ notification }) {
 
   const sendToFlask = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://127.0.0.1:5000/api/signup", {
+    const res = await fetch("https://tech-tracker-backend.herokuapp.com/api/signup", {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -120,7 +163,7 @@ export default function SignUp({ notification }) {
                     <img src={gLogo} alt='G' width="18" height="18" />&nbsp;
                     Sign up with Google
                   </Link>
-                  <Link className="box-footer-margins" to="/">
+                  <Link className="box-footer-margins" to="/" onClick={(e) => signUpMicrosoft(e)}>
                     <img src={mLogo} alt='M' width="18" height="18" />&nbsp;
                     Sign up with Microsoft
                   </Link>

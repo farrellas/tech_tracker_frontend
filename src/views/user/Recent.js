@@ -13,7 +13,7 @@ export default function Recent({ notification }) {
   const [work_orders, setWorkOrderList] = useState([]);
 
   const getUserWorkOrders = async () => {
-    const res = await fetch(`http://localhost:5000/api/recent/work-order-list`, {
+    const res = await fetch(`https://tech-tracker-backend.herokuapp.com/api/recent/work-order-list`, {
       method: "GET",
       headers: {
         'x-access-token': user.token

@@ -21,7 +21,7 @@ export default function SingleSystem({ notification }) {
   const [work_orders, setWorkOrderList] = useState([]);
 
   const getEquipment = async (customerId, systemId) => {
-    const res = await fetch(`http://localhost:5000/api/customers/${customerId}/systems/${systemId}/equipment-list`, {
+    const res = await fetch(`https://tech-tracker-backend.herokuapp.com/api/customers/${customerId}/systems/${systemId}/equipment-list`, {
       method: "GET",
       headers: {
         'x-access-token': user.token
@@ -42,7 +42,7 @@ export default function SingleSystem({ notification }) {
   }
 
   const getSystemWorkOrders = async (customerId, systemId) => {
-    const res = await fetch(`http://localhost:5000/api/customers/${customerId}/systems/${systemId}/work-order-list`, {
+    const res = await fetch(`https://tech-tracker-backend.herokuapp.com/api/customers/${customerId}/systems/${systemId}/work-order-list`, {
       method: "GET",
       headers: {
         'x-access-token': user.token

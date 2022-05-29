@@ -17,7 +17,7 @@ export default function EditEquipment({ notification, getEquipmentInfo }) {
 
   const sendToFlask = async (e) => {
     e.preventDefault();
-    const res = await fetch(`http://127.0.0.1:5000/api/customers/${params.customerId}/systems/${params.systemId}/equipment/${params.equipmentId}/edit`, {
+    const res = await fetch(`https://tech-tracker-backend.herokuapp.com/api/customers/${params.customerId}/systems/${params.systemId}/equipment/${params.equipmentId}/edit`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ export default function EditEquipment({ notification, getEquipmentInfo }) {
   }
 
   const deleteEquipment = async () => {
-    const res = await fetch(`http://127.0.0.1:5000/api/customers/${params.customerId}/systems/${params.systemId}/equipment/delete/${params.equipmentId}`, {
+    const res = await fetch(`https://tech-tracker-backend.herokuapp.com/api/customers/${params.customerId}/systems/${params.systemId}/equipment/delete/${params.equipmentId}`, {
       method: "POST",
       headers: {
         'x-access-token': user.token

@@ -8,15 +8,10 @@ body {
 }
 
 body {
-  background-image: url(./assets/images/duct2.jpg);
-  background-image: -webkit-linear-gradient(left, 
-  rgba(192,192,192,1) 0%, 
-  rgba(0,0,0,0) 20%,
-  rgba(0,0,0,0) 80%,
-  rgba(192,192,192,1) 100%),
-  url(./assets/images/duct2.jpg);
+  background-image: url(./assets/images/galvanized-steel.jpg);
   background-color: black;
   background-repeat: no-repeat;
+  background-size: cover;
   background-attachment: fixed;
   background-position: center; 
 }

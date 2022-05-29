@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from '../../store/reducers/authSlice';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { getAuth, signInWithPopup, GoogleAuthProvider, OAuthProvider  } from 'firebase/auth';
 import { Button } from '@mui/material';
 import logo from '../../assets/images/ace_tech_logo_2.png'
 
@@ -14,6 +14,43 @@ export default function Login({ notification, getCompanyInfo }) {
 
     const auth = getAuth();
 
+    const signInMicrosoft = async (e) => {
+        e.preventDefault();
+        const provider = new OAuthProvider('microsoft.com');
+        provider.setCustomParameters({
+            prompt: "consent",
+            tenant: "common",
+          })
+        const res = await signInWithPopup(auth, provider);
+        console.log(res);
+        if (res.user) {
+            const microsoftUser = {
+                ...res.user,
+                email: res.user.email,
+            }
+            const flask = await fetch("https://tech-tracker-backend.herokuapp.com/api/login", {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email: microsoftUser.email,
+                    password: microsoftUser.uid,
+                })
+            });
+            const data = await flask.json();
+
+            if (data.status === 'success') {
+                notification(data);
+                dispatch(login(data.user));
+                if (data.user.company_id) { getCompanyInfo(data.user); }
+            }
+            else {
+                notification(data);
+            }
+        } else {
+            notification({ 'status': 'error', 'message': 'Microsoft Authentication Failed' });
+        }
+    }
+
     const signInGoogle = async (e) => {
         e.preventDefault();
         const provider = new GoogleAuthProvider();
@@ -24,7 +61,7 @@ export default function Login({ notification, getCompanyInfo }) {
                 ...res.user,
                 email: res.user.email,
             }
-            const flask = await fetch("http://127.0.0.1:5000/api/login", {
+            const flask = await fetch("https://tech-tracker-backend.herokuapp.com/api/login", {
                 method: "POST",
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -49,7 +86,7 @@ export default function Login({ notification, getCompanyInfo }) {
 
     const sendToFlask = async (e) => {
         e.preventDefault();
-        const res = await fetch("http://127.0.0.1:5000/api/login", {
+        const res = await fetch("https://tech-tracker-backend.herokuapp.com/api/login", {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -102,7 +139,7 @@ export default function Login({ notification, getCompanyInfo }) {
                                     <img src={gLogo} alt='G' width="18" height="18" />&nbsp;
                                     Sign in with Google
                                 </Link>
-                                <Link className="box-footer-margins" to="/">
+                                <Link className="box-footer-margins" to="/" onClick={(e) => signInMicrosoft(e)}>
                                     <img src={mLogo} alt='M' width="18" height="18" />&nbsp;
                                     Sign in with Microsoft
                                 </Link>

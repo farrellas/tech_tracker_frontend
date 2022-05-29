@@ -23,7 +23,7 @@ export default function Customers({ notification }) {
     dispatch(clearEquipment());
     dispatch(clearWorkOrder());
     const getCustomers = async () => {
-      const res = await fetch('http://localhost:5000/api/customer-list', {
+      const res = await fetch('https://tech-tracker-backend.herokuapp.com/api/customer-list', {
         method: "GET",
         headers: {
           'x-access-token': user.token,

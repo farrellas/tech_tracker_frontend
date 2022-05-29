@@ -12,7 +12,7 @@ export default function CreateEquipment({ notification }) {
 
   const sendToFlask = async (e) => {
     e.preventDefault();
-    const res = await fetch(`http://127.0.0.1:5000/api/customers/${params.customerId}/systems/${params.systemId}/create-equipment`, {
+    const res = await fetch(`https://tech-tracker-backend.herokuapp.com/api/customers/${params.customerId}/systems/${params.systemId}/create-equipment`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',

@@ -18,7 +18,7 @@ export default function EditSystem({ notification, getSystemInfo }) {
 
   const sendToFlask = async (e) => {
     e.preventDefault();
-    const res = await fetch(`http://127.0.0.1:5000/api/customers/${params.customerId}/systems/${params.systemId}/edit`, {
+    const res = await fetch(`https://tech-tracker-backend.herokuapp.com/api/customers/${params.customerId}/systems/${params.systemId}/edit`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ export default function EditSystem({ notification, getSystemInfo }) {
   }
 
   const deleteSystem = async () => {
-    const res = await fetch(`http://127.0.0.1:5000/api/customers/${params.customerId}/systems/delete/${params.systemId}`, {
+    const res = await fetch(`https://tech-tracker-backend.herokuapp.com/api/customers/${params.customerId}/systems/delete/${params.systemId}`, {
       method: "POST",
       headers: {
         'x-access-token': user.token
