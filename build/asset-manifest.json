@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9d318c87.css",
+    "main.js": "/static/js/main.a73b976c.js",
+    "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
+    "static/media/galvanized-steel.jpg": "/static/media/galvanized-steel.eba074b5f191c6c63c27.jpg",
+    "static/media/ace_tech_logo.png": "/static/media/ace_tech_logo.8f765aa43b4338e8c5df.png",
+    "static/media/ace_tech_logo_2.png": "/static/media/ace_tech_logo_2.7cc1fab234da8901deb8.png",
+    "static/media/google.svg": "/static/media/google.bbce75f8c7f6cd3d1c0db56d81258450.svg",
+    "index.html": "/index.html",
+    "static/media/microsoft.svg": "/static/media/microsoft.72f0fcc793eda19cdc1604efc3b381cb.svg",
+    "main.9d318c87.css.map": "/static/css/main.9d318c87.css.map",
+    "main.a73b976c.js.map": "/static/js/main.a73b976c.js.map",
+    "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9d318c87.css",
+    "static/js/main.a73b976c.js"
+  ]
+}
