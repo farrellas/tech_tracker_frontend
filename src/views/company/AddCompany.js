@@ -57,7 +57,7 @@ export default function AddCompany({ notification, getUserInfo, getCompanyInfo }
                                     <input className="form-control form-control-lg" name="company_name" placeholder="Company Name" required="True" type="text" />
                                 </div>
                                 <div className="col-sm-12 mb-3">
-                                    <input className="form-control form-control-lg" name="company_password" placeholder="Company Password" required="True" type="text" />
+                                    <input className="form-control form-control-lg" name="company_password" placeholder="Company Password" required="True" type="password" />
                                 </div>
                                 <div className="col-sm-12 d-grid mb-3">
                                     <Button variant="contained" size='large' type='submit'>ADD COMPANY</Button>

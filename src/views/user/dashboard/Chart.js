@@ -16,6 +16,7 @@ const data = [
   createData('4/25', 3),
   createData('4/26', 6),
   createData('4/27', 5),
+  createData('4/28', 6),
 ];
 
 export default function Chart() {
