@@ -33,7 +33,7 @@ export default function Profile() {
                 </Link>
                 {user.company_id ?
                   <Link className="profile-logo" to='/company'>
-                    <img src={company.logo_url} alt={company.company_name} />
+                    <img src={company.logo_url} alt={company.company_name} className="h-100" />
                   </Link>
                   :
                   <Link className="box-footer-margins" to="/addcompany">
