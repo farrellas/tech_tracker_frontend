@@ -154,7 +154,7 @@ const ResponsiveAppBar = () => {
                 </IconButton>
               </Tooltip>
               :
-              <Link to='/login'>
+              <Link to='/login' className='text-decoration-none link-dark'>
                 <Button variant="contained" disableElevation>Login</Button>
               </Link>
             }

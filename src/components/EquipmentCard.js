@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 
 export default function EquipmentCard({ customerId, equipment }) {
     const dispatch = useDispatch();
-    
+
     return (
         <>
             <Card variant="outlined" sx={{ minWidth: 275 }}>
@@ -33,8 +33,11 @@ export default function EquipmentCard({ customerId, equipment }) {
                     </Typography>
                 </CardContent>
                 <CardActions className='justify-content-around'>
-                    <Link to={`/customers/${customerId}/systems/${equipment.system_id}/equipment/${equipment.id}`}>
-                        <Button size="small" onClick={()=>dispatch(setEquipment(equipment))}>View details</Button>
+                    <Link
+                        to={`/customers/${customerId}/systems/${equipment.system_id}/equipment/${equipment.id}`}
+                        className="text-decoration-none link-dark"
+                    >
+                        <Button size="small" onClick={() => dispatch(setEquipment(equipment))}>View details</Button>
                     </Link>
                 </CardActions>
             </Card>

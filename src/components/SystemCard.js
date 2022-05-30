@@ -32,10 +32,10 @@ export default function SystemCard({ system }) {
                     </Typography>
                 </CardContent>
                 <CardActions className='justify-content-around'>
-                    <Link to={`/customers/${system.customer_id}/systems/${system.id}`}>
+                    <Link to={`/customers/${system.customer_id}/systems/${system.id}`} className="text-decoration-none link-dark">
                         <Button size="small" onClick={()=>dispatch(setSystem(system))}>View details</Button>
                     </Link>
-                    <Link to={`/customers/${system.customer_id}/systems/${system.id}/workorders/create`}>
+                    <Link to={`/customers/${system.customer_id}/systems/${system.id}/workorders/create`} className="text-decoration-none link-dark">
                         <Button size="small" onClick={()=>dispatch(setSystem(system))}>Create Work Order</Button>
                     </Link>
                 </CardActions>

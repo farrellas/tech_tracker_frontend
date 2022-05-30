@@ -26,10 +26,10 @@ export default function Customer({ customer }) {
                     </Typography>
                 </CardContent>
                 <CardActions className='justify-content-around'>
-                    <Link to={`/customers/${customer.id}`}>
+                    <Link to={`/customers/${customer.id}`} className="text-decoration-none link-dark">
                         <Button size="small" onClick={()=>dispatch(setCustomer(customer))}>View details</Button>
                     </Link>
-                    <Link to={`/customers/${customer.id}`}>
+                    <Link to={`/customers/${customer.id}`} className="text-decoration-none link-dark">
                         <Button size="small" onClick={()=>dispatch(setCustomer(customer))}>Create Work Order</Button>
                     </Link>
                 </CardActions>

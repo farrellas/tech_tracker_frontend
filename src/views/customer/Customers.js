@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { clearCustomer } from '../../store/reducers/customerSlice';
+import { clearCustomer, customerSlice } from '../../store/reducers/customerSlice';
 import { clearSystem } from '../../store/reducers/systemSlice';
 import { clearEquipment } from '../../store/reducers/equipmentSlice';
 import { clearWorkOrder } from '../../store/reducers/workOrderSlice';
@@ -68,18 +68,21 @@ export default function Customers({ notification }) {
               <Link to='/customers/create' className="col-sm-12 d-grid text-decoration-none">
                 <Button variant="contained" size='large'>Add New Customer</Button>
               </Link>
-              <div className='column center'>
-                <hr />
-                {
-                  customers.filter(customer => {
-                    if (query === '') {
-                      return customer;
-                    } else if (customer.name.toLowerCase().includes(query.toLowerCase())) {
-                      return customer;
-                    }
-                  }).map((c, i) => <Customer key={i} customer={c} />)}
-              </div>
-
+              {customers.length > 0 ?
+                <div className='column center customer-box scrollable-box'>
+                  <hr />
+                  {
+                    customers.filter(customer => {
+                      if (query === '') {
+                        return customer;
+                      } else if (customer.name.toLowerCase().includes(query.toLowerCase())) {
+                        return customer;
+                      }
+                    }).map((c, i) => <Customer key={i} customer={c} />)}
+                </div>
+                :
+                <></>
+              }
             </div>
           </div>
         </div>

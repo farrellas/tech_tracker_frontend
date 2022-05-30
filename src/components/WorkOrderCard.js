@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 
 export default function WorkOrderCard({ work_order }) {
     const dispatch = useDispatch();
-    
+
     return (
         <>
             <Card variant="outlined" sx={{ minWidth: 275 }}>
@@ -31,8 +31,11 @@ export default function WorkOrderCard({ work_order }) {
                     </Typography>
                 </CardContent>
                 <CardActions className='justify-content-around'>
-                    <Link to={`/customers/${work_order.customer_id}/systems/${work_order.system_id}/workorders/${work_order.id}`}>
-                        <Button size="small" onClick={()=>dispatch(setWorkOrder(work_order))}>View details</Button>
+                    <Link
+                        to={`/customers/${work_order.customer_id}/systems/${work_order.system_id}/workorders/${work_order.id}`}
+                        className="text-decoration-none link-dark"
+                    >
+                        <Button size="small" onClick={() => dispatch(setWorkOrder(work_order))}>View details</Button>
                     </Link>
                 </CardActions>
             </Card>
