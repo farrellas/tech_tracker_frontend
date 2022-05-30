@@ -81,7 +81,7 @@ export const currentLocation = async () => {
 
     const success = async (pos) => {
         const crd = pos.coords;
-        const result = await fetch(`http://www.mapquestapi.com/geocoding/v1/reverse?key=${key}&location=${crd.latitude},${crd.longitude}`);
+        const result = await fetch(`https://www.mapquestapi.com/geocoding/v1/reverse?key=${key}&location=${crd.latitude},${crd.longitude}`);
         const data = await result.json();
         console.log(data)
         if (data.info.statuscode !== 0) {
