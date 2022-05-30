@@ -1,5 +1,5 @@
 // Dependencies
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { login } from './store/reducers/authSlice';
 import { setCompany } from './store/reducers/companySlice';
@@ -46,7 +46,7 @@ export default function App() {
   const dispatch = useDispatch();
 
   const [alert, setAlert] = useState();
-  
+
   const notification = (alertObj) => {
     setAlert(alertObj);
   };
@@ -147,7 +147,9 @@ export default function App() {
     dispatch(setWorkOrder(data.work_order));
   }
 
-
+  useEffect(() => {
+    document.title = "Ace Tech Tracker"
+  }, []);
 
   return (
     <div>
